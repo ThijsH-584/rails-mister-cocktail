@@ -1,0 +1,28 @@
+<div class="container">
+	<h1><%= @cocktail.name %></h1>
+	<br>
+
+	<h2>Cocktail Dose and ingredients:</h2>
+	<h4>
+		<% @cocktail.doses.each do |dose| %>
+		  <h5><%= dose[:description].capitalize %> of <%= Ingredient.find(dose[:ingredient_id]).name.capitalize %></h5>
+		  <br>
+		<% end %>
+	</h4>
+	<br>
+
+<!-- 	<h2>Cocktail Ingredients:</h2>
+	<h4>
+		<% @cocktail.ingredients.each do |ingredient| %>
+		  <h5><%= ingredient[:name].capitalize %> </h5>
+		  <br>
+		<% end %>
+	</h4> -->
+
+
+	<%= link_to "Back to lists", cocktails_path %>
+	<%= link_to "Add doses and ingredients", new_cocktail_dose_path(@cocktail) %>
+
+</div>
+
+
